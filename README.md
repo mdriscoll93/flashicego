@@ -9,8 +9,10 @@ Current release: `v0.1.0`
 ## Features
 
 - Auto-download ISO from URL
+- Resume partial downloads and retry transient network/server failures
 - SHA256 checksum verification (sidecar `.sha256` for URLs)
 - Confirm target disk identity by serial/model
+- Display `/dev/disk/by-id` alias for stronger target confirmation
 - Raw image write to removable media
 - Post-write verification profiles (`quick`, `thorough`, `full`)
 - Secure shredding of temporary downloaded ISOs after successful verify
@@ -67,6 +69,20 @@ sudo flashicego verify ./ubuntu.iso /dev/sdb --profile thorough
 - Linux-focused implementation.
 - Raw device writes generally require root privileges.
 - Secure deletion on modern filesystems is best effort.
+
+## Testing
+
+Run unit tests:
+
+```bash
+make test
+```
+
+Run loop-device integration tests (requires root and loop tools):
+
+```bash
+sudo make integration-test
+```
 
 ## Versioning
 

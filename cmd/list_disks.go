@@ -24,9 +24,13 @@ func newListDisksCmd() *cobra.Command {
 			}
 
 			header := color.New(color.FgCyan, color.Bold)
-			header.Println("PATH\tSIZE\tMODEL\tSERIAL\tMOUNTED")
+			header.Println("PATH\tSIZE\tMODEL\tSERIAL\tBY-ID\tMOUNTED")
 			for _, d := range disks {
-				fmt.Printf("%s\t%s\t%s\t%s\t%t\n", d.Path, device.HumanBytes(d.SizeBytes), d.Model, d.Serial, d.Mounted)
+				byID := "-"
+				if len(d.ByIDPaths) > 0 {
+					byID = d.ByIDPaths[0]
+				}
+				fmt.Printf("%s\t%s\t%s\t%s\t%s\t%t\n", d.Path, device.HumanBytes(d.SizeBytes), d.Model, d.Serial, byID, d.Mounted)
 			}
 			return nil
 		},
