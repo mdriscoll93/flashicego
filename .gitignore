@@ -1,0 +1,24 @@
+# Binaries
+flashicego
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go test artifacts
+*.test
+*.out
+coverage.out
+
+# Dependency/vendor artifacts
+vendor/
+
+# Editors and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Temporary files
+*.partial
+tmp/
