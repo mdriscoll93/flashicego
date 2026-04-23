@@ -1,8 +1,10 @@
 # flashicego
 
-`flashicego` is an engineer-grade, terminal-native USB image writer built in Go.
+`flashicego` is a terminal-native USB image writer built in Go.
 
-It is designed for serious, scriptable workflows where you can pass either a local ISO path or a remote URL.
+It is designed for scriptable workflows where you can pass either a local ISO path or a remote URL.
+
+Inspiration for this project comes from the venerable, though predominantly GUI-based, Balena Etcher and its ability to burn an image based on a provided URL.
 
 Current release: `v0.1.0`
 
