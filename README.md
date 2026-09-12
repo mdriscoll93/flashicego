@@ -1,6 +1,6 @@
 # flashicego
 
-`flashicego` is a terminal-native USB image writer built in Go.
+`flashicego` is a **terminal-native**<sup>[1]</sup> USB image writer built in Go.
 
 It is designed for scriptable workflows where you can pass either a local ISO path or a remote URL.
 
@@ -92,3 +92,8 @@ This project follows Semantic Versioning.
 
 - Current version: `v0.1.0` (see `VERSION`)
 - Release notes: `CHANGELOG.md`
+
+### Notes and Errata 
+[1] Probably should've slept on that one. I'm sure Claude wrote that anyway. Nevertheless, one line into reviewing an *old* project's flavorful word salad and I've had enough funny pain<sup>[2]</sup> for the week.
+
+[2] Similar to "happy sad"
