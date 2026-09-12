@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"text/tabwriter"
 
 	"flashicego/pkg/device"
 
@@ -23,14 +24,18 @@ func newListDisksCmd() *cobra.Command {
 				return nil
 			}
 
+			tw := tabwriter.NewWriter(cmd.OutOrStdout(), 0, 0, 2, ' ', 0)
+			defer tw.Flush()
+
 			header := color.New(color.FgCyan, color.Bold)
-			header.Println("PATH\tSIZE\tMODEL\tSERIAL\tBY-ID\tMOUNTED")
+			header.Fprint(tw, "PATH\tSIZE\tMODEL\tSERIAL\tBY-ID\tMOUNTED\n")
+
 			for _, d := range disks {
 				byID := "-"
 				if len(d.ByIDPaths) > 0 {
 					byID = d.ByIDPaths[0]
 				}
-				fmt.Printf("%s\t%s\t%s\t%s\t%s\t%t\n", d.Path, device.HumanBytes(d.SizeBytes), d.Model, d.Serial, byID, d.Mounted)
+				fmt.Fprintf(tw, "%s\t%s\t%s\t%s\t%s\t%t\n", d.Path, device.HumanBytes(d.SizeBytes), d.Model, d.Serial, byID, d.Mounted)
 			}
 			return nil
 		},
